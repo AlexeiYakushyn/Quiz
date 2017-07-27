@@ -6,9 +6,11 @@ public enum Colour {
     GREEN,
     BLUE;
 
+    private int price = 0;
+
     public int getCost() {
         Colour colour = null;
-        int price = 0;
+
 
         switch (colour) {
             case RED:
@@ -22,5 +24,9 @@ public enum Colour {
                 break;
         }
         return price;
+    }
+
+    public int cost(){
+        return this.price;
     }
 }

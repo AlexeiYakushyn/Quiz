@@ -5,6 +5,7 @@ import java.util.List;
  * Created by java2 on 27.07.17.
  */
 public class Main {
+
     public static void main(String[] args) {
         Shape redSquare = new Square(10, Colour.RED);
         Shape greenSquare = new Square(12, Colour.GREEN);
@@ -27,11 +28,13 @@ public class Main {
 
     }
 
-    private double calculateCost(List<Shape> shapes, Colour filterColour){
-        for (int i =0; i < shapes.size(); i ++){
-          //  double cost = (shapes.get(i).size() * shapes.get(i));
+    private double calculateCost(List<Shape> shapes, Colour filterColour) {
+        double cost;
+        cost = 0;
+        for (int i = 0; i < shapes.size(); i++) {
+            cost = (shapes.get(i).size() * shapes.get(i).colour().cost());
         }
-        return 0;
+        return cost;
     }
 
     private Shape findMostExpensive(List<Shape> shapes){
