@@ -36,4 +36,8 @@ public class Square implements Shape {
         return this.colour;
     }
 
+    @Override
+    public int compareTo(Shape o) {
+        return (int) ((this.size()* this.colour().cost()) - (o.size()*o.colour().cost()));
+    }
 }

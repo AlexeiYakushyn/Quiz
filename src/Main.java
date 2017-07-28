@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by java2 on 27.07.17.
+ * Created by alexey.yakushin on 27.07.17.
  */
 public class Main {
 
@@ -14,34 +15,36 @@ public class Main {
         Shape greenCircle = new Circle(9, Colour.GREEN);
         Shape blueCircle = new Circle(25, Colour.BLUE);
 
-        ArrayList<Shape> ppz = new ArrayList<>();
-        ppz.add(redSquare);
-        ppz.add(blueSquare);
-        ppz.add(greenSquare);
+        List<Shape> ppz = new ArrayList<>();
         ppz.add(redCircle);
         ppz.add(greenCircle);
         ppz.add(blueCircle);
+        ppz.add(redSquare);
+        ppz.add(blueSquare);
+        ppz.add(greenSquare);
 
         System.out.println(ppz);
 
         System.out.println(calculateCost(ppz, Colour.RED));
         System.out.println(calculateCost(ppz, Colour.GREEN));
         System.out.println(calculateCost(ppz, Colour.BLUE));
+
+        System.out.println(findMostExpensive(ppz));
     }
 
-    private static double calculateCost(List<Shape> shapes, Colour filterColour) {
-        double cost;
-        cost = 0;
+    private static ArrayList<Double> calculateCost(List<Shape> shapes, Colour filterColour) {
+        ArrayList<Double> cost = new ArrayList<>();
         for (int i = 0; i < shapes.size(); i++) {
             if (shapes.get(i).colour() == filterColour) {
-                cost = (shapes.get(i).size() * shapes.get(i).colour().cost());
+                cost.add(shapes.get(i).size() * shapes.get(i).colour().cost());
             }
         }
         return cost;
     }
 
-    private Shape findMostExpensive(List<Shape> shapes) {
-        return null;
+    private static Shape findMostExpensive(List<Shape> shapes) {
+        Collections.sort(shapes);
+        return shapes.get(shapes.size() - 1);
     }
 }
 

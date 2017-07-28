@@ -1,5 +1,5 @@
 /**
- * Created by java2 on 27.07.17.
+ * Created by alexey.yakushin on 27.07.17.
  */
 public class Circle implements Shape {
     public static final double PI = 3.14;
@@ -33,5 +33,10 @@ public class Circle implements Shape {
                 "size=" + size +
                 ", colour=" + colour +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Shape o) {
+        return (int) ((this.size() * this.colour().cost()) - (o.size() * o.colour().cost()));
     }
 }

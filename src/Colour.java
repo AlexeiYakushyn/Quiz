@@ -1,5 +1,5 @@
 /**
- * Created by lexey.yakushin on 27.07.17.
+ * Created by alexey.yakushin on 27.07.17.
  */
 public enum Colour {
     RED(60),
@@ -16,9 +16,8 @@ public enum Colour {
         return (Colour.this.price);
     }
 
-
     @Override
     public String toString() {
-        return this.price != 0 ? String.valueOf(this.price) : " ";
+        return String.valueOf(this.price);
     }
 }
