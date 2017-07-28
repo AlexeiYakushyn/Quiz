@@ -8,7 +8,6 @@ public class Circle implements Shape {
     public Colour colour;
 
     public double getCircleSize(int radius) {
-
         this.size = PI * Math.pow(this.radius, 2);
         return size;
     }
@@ -20,11 +19,19 @@ public class Circle implements Shape {
 
     @Override
     public double size() {
-        return size;
+        return this.size;
     }
 
     @Override
     public Colour colour() {
-        return colour;
+        return this.colour;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "size=" + size +
+                ", colour=" + colour +
+                '}';
     }
 }

@@ -22,22 +22,25 @@ public class Main {
         ppz.add(greenCircle);
         ppz.add(blueCircle);
 
+        System.out.println(ppz);
 
-
-
-
+        System.out.println(calculateCost(ppz, Colour.RED));
+        System.out.println(calculateCost(ppz, Colour.GREEN));
+        System.out.println(calculateCost(ppz, Colour.BLUE));
     }
 
-    private double calculateCost(List<Shape> shapes, Colour filterColour) {
+    private static double calculateCost(List<Shape> shapes, Colour filterColour) {
         double cost;
         cost = 0;
         for (int i = 0; i < shapes.size(); i++) {
-            cost = (shapes.get(i).size() * shapes.get(i).colour().cost());
+            if (shapes.get(i).colour() == filterColour) {
+                cost = (shapes.get(i).size() * shapes.get(i).colour().cost());
+            }
         }
         return cost;
     }
 
-    private Shape findMostExpensive(List<Shape> shapes){
+    private Shape findMostExpensive(List<Shape> shapes) {
         return null;
     }
 }

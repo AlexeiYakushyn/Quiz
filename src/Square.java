@@ -4,7 +4,7 @@ import java.awt.*;
  * Created by lexey.yakushin on 27.07.17.
  */
 public class Square implements Shape {
-    private int a;
+    private int side;
     public double size;
     public Colour colour;
 
@@ -13,19 +13,27 @@ public class Square implements Shape {
         this.colour = colour;
     }
 
-    public double getSquereSize(int a) {
-        this.size = a * a;
-        return size;
+    public double size(int side) {
+        size = side * side;
+        return this.size;
     }
 
     @Override
     public double size() {
-        return size;
+        return this.size;
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "size=" + size +
+                ", colour=" + colour +
+                '}';
     }
 
     @Override
     public Colour colour() {
-        return colour;
+        return this.colour;
     }
 
 }
